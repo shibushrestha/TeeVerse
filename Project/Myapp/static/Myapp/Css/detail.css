@@ -1,0 +1,92 @@
+#container{
+  width: 1000px;
+  height: 100vh;
+  margin: 20px 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#img-container{
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#img-container > img{
+  width: 400px;
+  height: 400px;
+  background-size: cover;
+}
+
+#product-info{
+  width: 400px;
+  height: 400px;
+  margin-left: 30px;
+  border-radius: 5px;
+  padding: 10px 10px;
+  background-color: rgb(245, 247, 247);
+  align-self: flex-start;
+
+}
+#product-info > h2,p{
+  margin-top:8px;
+}
+
+#des{
+  font-size: 14px;
+}
+
+.btn{
+  height: 35px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  color: rgb(238, 240, 240);
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-buy{
+  width: 150px;
+  letter-spacing: 3px;
+  background-color: rgba(255, 165, 0, 0.7);
+}
+
+.btn-buy:hover{
+  background-color: rgba(255, 165, 0, 1);
+}
+
+.btn-cart{
+  width: 150px;
+  background-color: rgb(28,172,139, 0.7);
+}
+
+.btn-cart:hover{
+  background-color: rgb(28,172,139, 1);
+}
+
+.zoom {
+  transition: transform .2s; /* Animation */
+  width: 320px;
+  height: 200px;
+  }
+  
+.zoom:hover {
+  transform: scale(2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+
+#orderQty{
+  width: 50px;
+  height: 30px;
+  border-radius: none;
+  text-align: center;
+  font-size: 16px;
+}
+
+#orderQty:focus{
+  outline: none;
+}

@@ -1,0 +1,165 @@
+.container{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container{
+    margin: 25px 0 0 0;
+    padding: 0 8px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /*
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+    */
+}
+
+.brand-name{
+    margin: 4px;
+    font-family: "Sofia", sans-serif;
+    font-size: 40px;
+}
+
+.form{
+    padding: 5px 0 10px 0;
+    display: inherit;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.form > input{
+    margin: 0px 15px 8px 15px;
+    padding: 3px;
+    width: auto;
+    height: 40px;
+    border: 1px solid gainsboro;
+    border-radius: 3px;
+    background-color: rgba(245, 245, 245, 0.7);
+    color: rgba(31, 29, 29, 0.9);
+    font-size: small;
+
+}
+
+.form > input:focus{
+    outline: 1px solid rgba(28,172,139, 0.7);
+}
+
+.form .submit-btn{
+    margin-top: 10px;
+    margin-bottom: 10px; 
+    height: 40px;
+    background-color: rgba(28,172,139, 0.7);
+    border: none;
+    border-radius: 5px;
+    color: whitesmoke;
+    font-size: 16px;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.form .submit-btn:hover{
+    background-color: rgb(28,172,139);
+}
+
+.form-title{
+    margin: 10px;
+    padding: 5px;
+    width: 500px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+.login-link{
+    margin: 18px 0;
+    width: 350px;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(31, 29, 29, 0.9);
+    cursor: pointer;
+}
+
+.login-link a{
+    color: rgba(28,172,139, 0.7);
+    text-decoration: none;
+}
+
+#password-reset{
+    align-self: center;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 390px){
+    .form-container{
+        width: 100vw;
+        border: none;
+    }
+    .login-link{
+        width: 100vw;
+        border: none;
+    }
+}
+
+@media screen and (width <= 800px){
+    .form-container{
+        border: none;
+    }
+    .login-link{
+        width: 100vw;
+        border: none;
+    }
+}
+
+.errorlist{
+    margin: 3px 15px;
+    list-style-type: none;
+}
+
+.errorlist > li{
+    color: red;
+    font-size: 12px;
+}
+
+.msg-container{
+    width: 100vw;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    top:0;
+    position: relative;
+}
+
+.info-msg-container{
+    width: inherit;
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 181, 45, 0.8);
+}
+
+.message-list{
+    margin: 0 10px;
+    width: 400px;
+    list-style-type: none;
+}
+
+.message-list .info{
+    color: rgb(245, 245, 245);
+    text-align: center;
+    font-size: small;
+}

@@ -1,0 +1,147 @@
+.container{
+	width: 90%;
+	margin: 30px auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	
+}
+
+.card{
+	margin: 5px;
+	padding: 5px;
+	display: flex;
+	flex-direction: column;
+	border-radius: 3px;
+	width: 200px;
+	height: 350px;
+	margin: 10px;
+	transition: box-shadow 0.3s ease-in-out; /* add transition for smooth effect */
+
+}
+
+.card:hover{
+	box-shadow: 0 2px 3px 2px #d8d8d8;
+
+}
+
+.img-container{
+	height: 200px;
+	align-self: center;
+}
+
+.img-container > img{
+	height: 80%;
+	background-size: cover;
+}
+
+.card-profile{
+	margin: 3px 0;
+	padding: 5px;
+	background-color: white;
+	height: 150px;
+	display: flex;
+	flex-direction: column;
+
+}
+
+.text{
+	padding: 2px;
+	font-size: 14px;
+	text-align: left;
+	display: inline;
+}
+
+.pname{
+	font-weight: 600;
+	word-spacing: 2px;
+	height: 40px;
+}
+
+.price{
+	margin-top: 5px;
+	font-size: 16px;
+	color: rgb(28,172,139);
+	text-decoration: underline;
+}
+
+a{
+	text-decoration: none;
+	color: rgb(49, 46, 46);
+
+}
+
+a:hover{
+	text-decoration: none;
+	color: rgb(49, 46, 46);
+}
+
+.pagination{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.pagination a{
+	display: inline-block;
+	margin: 5px;
+	padding: 10px;
+	width: 40px;
+	height: 40px;
+	background-color: black;
+	border: 1px solid black;
+	color: white;
+	border-radius: 50%;
+	text-align: center;
+}
+
+.pagination a:hover{
+	border-color: rgb(28,172,139);
+	background-color: rgb(28,172,139);
+}
+
+#fav{
+	display: inline;
+	margin-right: 12px;
+	float: right;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+#fav:hover{
+	fill:red;
+}
+
+#cart-btn{
+	display: inline;
+	margin-right: 5px;
+	float: right;
+	width:20x;
+	height:20px; 
+	cursor: pointer;
+}
+
+#cart-btn:hover{
+	fill:orange;
+}
+
+
+@media screen and (max-width: 800px) {
+	.container{
+		margin: 0;
+		width: 100vw;
+		justify-content: space-around;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.container{
+		margin: 0;
+		width: 100vw;
+		justify-content: center;
+	}
+}
+
+

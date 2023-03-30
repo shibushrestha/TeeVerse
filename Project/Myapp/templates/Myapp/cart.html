@@ -1,0 +1,25 @@
+{% extends 'Myapp/main.html'%}
+{% load static %}
+
+{% block content %}
+    <div style="background-color: #f8f9fa; height:100vh" class="container">
+        <div class="row">
+            <h1>{{ no_cart_items}}</h1>
+                    
+            {% for item in cart_items %}
+                <div class="col-2">
+                    <img src="{{ item.product_image.url }}">
+                </div>
+                <div class="col-2">
+                    <p>{{ item.product_name }}</p>
+                </div>
+                <div class="col-2">
+                    <p>{{ item.price }}</p>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
+
+

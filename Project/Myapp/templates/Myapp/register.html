@@ -1,0 +1,35 @@
+{% extends 'Myapp/main.html' %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'Myapp/Css/register_login.css' %}">
+{% endblock %}
+
+{% block content%}
+    <div class="container">
+        <div class="form-container">
+            <form class="form" action="{% url 'Myapp:user-register' %}" method="post" novalidate>
+                {% csrf_token %}
+                
+                {{ form.errors.username }}
+                {{ form.username }}
+
+                {{ form.errors.email }}
+                {{ form.email }}
+
+                {{ form.errors.password1 }}
+                {{ form.password1 }}
+
+                {{ form.errors.password2 }}
+                {{ form.password2 }}
+                
+                <input class="submit-btn" type="submit" value="Sign up">
+            </form>  
+        </div>
+
+        <div class="login-link">
+            <p>Have an account? <a href="{% url 'Myapp:login' %}">Login</a></p>
+        </div>
+    </div>
+
+{% endblock %}

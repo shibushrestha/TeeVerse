@@ -1,0 +1,27 @@
+{% extends 'Myapp/main.html' %}
+{% load static %}
+
+{% block content %}
+
+    {% if next %}
+    {% endif %}
+    <p>Your are at the order page.</p>
+    <p>{{product.product_name }}</p>
+    <p>{{ product.price}}</p>
+    <p>{{ quantity }}</p>
+
+    <h5>Payment methods:</h5>
+    <p>Cash on delivery</p>
+    <p>Others</p>
+
+    <form action="{% url "Myapp:order-confirm" product.slug quantity %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="place an order">
+    </form>
+
+    <p>{{ request.user.username }}</p>
+    <p>{{ request.user.first_name }}</p>
+    <p>{{ request.user.last_name }}</p>
+    <p>{{ request.user.email }}</p>
+
+{% endblock %}

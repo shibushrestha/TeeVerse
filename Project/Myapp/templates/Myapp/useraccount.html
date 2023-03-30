@@ -1,0 +1,24 @@
+{% extends 'Myapp/main.html' %}
+
+{% load static %}
+
+{% block content%}
+
+    <div>
+        <div>
+            <h3>You are at the profile page.</h3>
+            
+            <a href="{% url 'Myapp:edit-profile' user.username %}"><h4>Edit profile</h4></a>
+            <h3>Username{{ user.username }}</h3>
+            <h3>First name{{ user.first_name }}</h3>
+            <h3>Last name{{ user.last_name }}</h3>
+            <h3>Email{{ user.email }}</h3>                 
+            <a href="{% url 'Myapp:changepassword' user.username %}"><h3>Change password</h3></a>
+            <a href='#'><h3>Orders</h3></a>
+            <a href='#'><h3>Cart</h3></a>    
+            <a href='#'><h3>Address</h3></a>
+        </div>
+    </div>
+
+{% endblock %}
+

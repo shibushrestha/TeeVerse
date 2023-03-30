@@ -1,0 +1,7 @@
+What needs to be done:
+
+front-end stuff for the order page
+front-end stuff for the cart page
+front-end stuff for the profile page
+
+functionality to add products to favorite

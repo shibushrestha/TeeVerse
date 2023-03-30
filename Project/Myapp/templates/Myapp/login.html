@@ -1,0 +1,38 @@
+{% extends 'Myapp/main.html' %}
+
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'Myapp/Css/register_login.css' %}">
+{% endblock css %}
+
+{% block content%}
+    <!-- display a one time message after a user successfully creates an account-->
+    {% if messages %}
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    {% endif %}
+
+    <!-- A form for logging a user -->
+    <div class="container">
+        <div class="form-container">
+            <form class="form" action="{% url 'Myapp:login' %}" method="post" novalidate>
+                <input type="hidden" name="next" value="{{next}}">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                {{ form.errors.username }}
+                {{ form.username }}
+                {{ form.errors.password }}
+                {{ form.password }}
+                
+                <input class="submit-btn" type="submit" value="Login">
+            </form>
+        </div>
+        <a id="password-reset" href="">Forgot password?</a>
+
+        <div class="login-link">
+            <p>Don't have an account? <a href="{% url 'Myapp:user-register' %}">Register</a></p>
+        </div>
+    </div>
+   
+{% endblock %}

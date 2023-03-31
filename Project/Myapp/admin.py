@@ -1,8 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .models import User, Product, Order, Review, UserCart
-
+from .models import User, Product, Order, Review, UserCart, CartItem
 
 class UserAdmin(UserAdmin):
     # Exclude last_login from the fields displayed in the form
@@ -20,6 +19,7 @@ admin.site.register(Product)
 admin.site.register(Review)
 admin.site.register(Order)
 admin.site.register(UserCart)
+admin.site.register(CartItem)
 
 
 

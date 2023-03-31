@@ -147,11 +147,22 @@ def set_order_id(sender, instance, **kwargs):
 # The cart for an user	
 class UserCart(models.Model):
 	user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-	product = models.ManyToManyField(Product, verbose_name="cart items", blank=True)
+	product = models.ManyToManyField(Product, verbose_name="cart items",
+		through='CartItem',
+		through_fields=('cart', 'product')
+		)
 	@property
 	def get_cart_total(self):
 		total = sum([items.price for items in self.product.all()])
 		return total
+	
+	def __str__(self):
+		return self.user.username + "'s cart"
+
+class CartItem(models.Model):
+	cart = models.ForeignKey(UserCart, on_delete=models.CASCADE)
+	product = models.ForeignKey(Product, on_delete=models.CASCADE)
+	quantity = models.PositiveSmallIntegerField(default=1)
 
 # This is a proxy model that deals with the orders the user made.
 class UserOrder(User):

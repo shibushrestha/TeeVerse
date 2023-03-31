@@ -43,47 +43,41 @@ addToCartBtn.forEach(btn =>{
         let user = this.dataset.user;
         console.log(user)
         console.log(productId)
-        // When the user clicks on the add to cart button, check that the user is authenticated or not
-        // If the user is not authenticated,
-        // we will send the user to the login page with the next parameter set to the current page the user was.
         if(user === "AnonymousUser"){
-            const login_url = `/Myapp/login/?next=${window.location.pathname}`;
-            window.location.href = login_url;
-        }
-        // If the user is authenticated, we will do a post request using fetch api and add the product to the cart
-        else{
+            window.location.href = "/Myapp/login/"
+        } else {
             url = "/Myapp/cart/"
             fetch(url,{
                 method:'POST',
                 headers:{
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'Content-Type':'application/json',
-                    'X-CSRFToken': csrftoken
+                'X-Requested-With': 'XMLHttpRequest',
+                'Content-Type':'application/json',
+                'X-CSRFToken': csrftoken
                 },
                 body: JSON.stringify({'productId':productId}),
                 credentials: 'same-origin'
+            })
+            .then(res => res.json())
+            .then((data)=>{
+                message = JSON.parse(data['message'])
+                const newP = document.createElement('p')
+                const successMsgId = 'successMsg-' + productId;
+                newP.id = successMsgId;
+                newP.className = 'successMsg';
+                newP.textContent = message;
+                document.body.appendChild(newP);
 
-            })
-            .then((response) => {
-                if(response.ok){
-                    location.reload();
-                }else{
-                    console.error('failed to redirect.');
-                }
-            })
-            .catch(error =>{
-                console.error('Error while redirecting', error);
+                // Hide the success message after 2 seconds
+                let lastSuccessMsg = null; // Keep track of the most recently added success message
+                setTimeout(function() {
+                    if (lastSuccessMsg) { // Hide the most recently added success message
+                        lastSuccessMsg.style.display = "none";
+                        lastSuccessMsg = null; // Reset lastSuccessMsg so it doesn't hide the wrong element later
+                    }
+                }, 2000);
+                lastSuccessMsg = newP; // Update lastSuccessMsg to the newly added success message
             })
         }
     })
 });
-
-
- // Hide the success message after 5 seconds
- setTimeout(function() {
-    let successMessage = document.getElementById('successMsg');
-    if (successMessage) {
-        successMessage.style.display = "none";
-    }
-}, 2000);
 

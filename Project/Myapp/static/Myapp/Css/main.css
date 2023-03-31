@@ -188,7 +188,7 @@
 }
 
 
-#successMsg {
+.successMsg {
     position: fixed;
     z-index: 1;
     top: 52px;
@@ -203,7 +203,7 @@
 }
 
 /* add a arrow tip to the success message */
-#successMsg::before {
+.successMsg::before {
     content: "";
     position: absolute;
     top: -10px;

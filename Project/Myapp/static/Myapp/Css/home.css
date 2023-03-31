@@ -9,16 +9,14 @@
 }
 
 .card{
-	margin: 5px;
+	margin: 20px 5px;
 	padding: 5px;
 	display: flex;
 	flex-direction: column;
 	border-radius: 3px;
 	width: 200px;
 	height: 350px;
-	margin: 10px;
 	transition: box-shadow 0.3s ease-in-out; /* add transition for smooth effect */
-
 }
 
 .card:hover{

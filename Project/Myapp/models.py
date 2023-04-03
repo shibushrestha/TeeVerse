@@ -46,7 +46,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(_('staff status'), default=False)
     is_property_admin = models.BooleanField(_('property admin'), default=False, blank=True)
     date_joined = models.DateTimeField(_('date joined'), auto_now_add=True, editable=False)
-    profile_image = models.ImageField(_('profile image'), upload_to='Myapp/User/profile_image/', blank=True, null=True)
+    profile_image = models.ImageField(_('profile image'), upload_to='Myapp/User/profile_image/', blank=True)
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['email']
@@ -79,13 +79,13 @@ class Product(models.Model):
 		('K', 'Kids'),
 		('A', 'Adults'),
     ]
-	name = models.CharField(max_length=100, blank=True, null=True)
-	description = models.TextField(blank=True, null=True)
+	name = models.CharField(max_length=100)
+	description = models.JSONField(blank=True)
 	price = models.IntegerField(default = 0)
-	product_image = models.ImageField(upload_to= 'Myapp/products/images',blank=True)
-	type = models.CharField(max_length=1, choices=Tshirt_Type,)
+	product_image = models.ImageField(upload_to= 'Myapp/products/images')
+	tshirt_type = models.CharField(max_length=1, choices=Tshirt_Type,)
 	date_added = models.DateTimeField(auto_now=True)
-	slug = models.SlugField(blank=True, null=True)
+	slug = models.SlugField(blank=True)
 	def __str__(self):
 		return self.name
 	

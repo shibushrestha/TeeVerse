@@ -1,6 +1,6 @@
 #container{
-  width: 1000px;
-  height: 100vh;
+  padding: 8px;
+  width: 900px;
   margin: 20px 20px;
   display: flex;
   justify-content: flex-start;
@@ -11,7 +11,7 @@
   background-size: cover;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-self: center;
 }
 
 #img-container > img{
@@ -20,26 +20,67 @@
   background-size: cover;
 }
 
-#product-info{
-  width: 400px;
-  height: 400px;
+#side-container{
+  width: 600px;
+  height: 450px;
   margin-left: 30px;
   border-radius: 5px;
-  padding: 10px 10px;
+  padding: 10px 20px;
   background-color: rgb(245, 247, 247);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-self: flex-start;
 
 }
-#product-info > h2,p{
-  margin-top:8px;
+
+#product-info p{
+  margin-top: 8px;
+  word-spacing: 2px;
+}
+
+#product-info h1{
+  margin-bottom: 10px;
+}
+
+.price{
+  display: inline-block;
+  padding: 5px;
+  border: 2px dashed #b3b305;
+  border-radius: 2px;
+  word-spacing: 3px;
+  letter-spacing: 2px;
+}
+
+#rating{
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+}
+#rating p{
+  margin-right: 10px;
+}
+
+#rating svg{
+
+  align-self: flex-end;
 }
 
 #des{
+  margin-top: 25px;
+  padding: 8px;
+  border: 1px solid #46494b;
+  border-radius: 5px;
   font-size: 14px;
 }
 
+#order-container{
+  display: flex;
+  justify-content: space-between;
+}
+
 .btn{
-  height: 35px;
+  height: 40px;
   text-align: center;
   border: none;
   border-radius: 3px;
@@ -50,7 +91,7 @@
 }
 
 .btn-buy{
-  width: 150px;
+  width: 230px;
   letter-spacing: 3px;
   background-color: rgba(255, 165, 0, 0.7);
 }
@@ -60,24 +101,20 @@
 }
 
 .btn-cart{
-  width: 150px;
+  width: 170px;
   background-color: rgb(28,172,139, 0.7);
+  align-self: flex-end;
 }
 
 .btn-cart:hover{
   background-color: rgb(28,172,139, 1);
 }
 
-.zoom {
-  transition: transform .2s; /* Animation */
-  width: 320px;
-  height: 200px;
-  }
-  
-.zoom:hover {
-  transform: scale(2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+#orderQty-container{
+  margin: 5px 8px;
+  display:flex; 
+  align-items: center;
 }
-
 
 #orderQty{
   width: 50px;

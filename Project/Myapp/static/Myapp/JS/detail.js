@@ -6,10 +6,10 @@ numberInput.style['-moz-appearance'] = 'textfield';
 let quantity = document.getElementById('orderQty').value;
 console.log(quantity);
 
-
+document.getElementById('subQty').style.cursor = 'pointer';
 function addQty(){
     if(quantity < 5){
-        document.getElementById('subQty').style.cursor = 'auto';
+        document.getElementById('subQty').style.cursor = 'pointer';
         quantity++;
         console.log(quantity);
         document.getElementById('orderQty').value = quantity;
@@ -20,10 +20,10 @@ function addQty(){
     }
 };
 
-
+document.getElementById('addQty').style.cursor = 'pointer';
 function subQty(){
     if(quantity > 1){
-        document.getElementById('addQty').style.cursor = 'auto';
+        document.getElementById('addQty').style.cursor = 'pointer';
         quantity--;
         console.log(quantity);
         document.getElementById('orderQty').value = quantity;

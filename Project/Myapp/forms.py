@@ -10,10 +10,10 @@ class UserRegistrationForm(UserCreationForm):
     }
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].widget.attrs.update({'placeholder':'Username', 'autofocus': False})
-        self.fields['email'].widget.attrs.update({'placeholder':'Enter your email address', 'autofocus':False})
-        self.fields['password1'].widget.attrs.update({'placeholder':'Enter a password'})
-        self.fields['password2'].widget.attrs.update({'placeholder':'Confirm password'})
+        self.fields['username'].widget.attrs.update({'placeholder':'Username', 'autofocus': False, 'class': 'form-control'})
+        self.fields['email'].widget.attrs.update({'placeholder':'Enter your email address', 'autofocus':False, 'class': 'form-control'})
+        self.fields['password1'].widget.attrs.update({'placeholder':'Enter a password', 'class': 'form-control password-input',})
+        self.fields['password2'].widget.attrs.update({'placeholder':'Confirm password', 'class': 'form-control password-input',})
 
     class Meta(UserCreationForm.Meta):
         model = User
@@ -37,5 +37,5 @@ class CustomAuthenticationForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         # Set the widget for the username field to a TextInput
-        self.fields['username'].widget.attrs.update({'placeholder':'Username or email address'})
-        self.fields['password'].widget.attrs.update({'placeholder':'Enter your password'})
+        self.fields['username'].widget.attrs.update({'placeholder':'Username or email address', 'class': 'form-control'})
+        self.fields['password'].widget.attrs.update({'placeholder':'Enter your password', 'class': 'form-control password-input'})

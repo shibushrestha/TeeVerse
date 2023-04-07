@@ -1,27 +1,40 @@
 {% extends 'Myapp/main.html' %}
+
 {% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'Myapp/Css/order.css' %}">
+{% endblock css %}
 
 {% block content %}
+    <div id="main-container">
+        <div class="shipping-detail">
+            <h4>Shipping detail</h4>
+            <p>Deliver to: {{ request.user.username }}</p>
+            <p>address: {{ request.user.address}}</p>
+            <p>email to: {{ request.user.email }}</p>
+            
+        </div>
+        <div class="order-container">
+            <div id="product-detail">
+                <img src={{product.product_image.url}}>
+                <p>Product {{product.name|capfirst }}</p>
+                <p>price {{ product.price}}</p>
+                <p>quantity {{ quantity }}</p>
+                <p>subtotal : Rs. {{ product.price}}</p>
+                <p>delivery : Rs. 50</p>
+                <p>total : Rs 1500</p>
+            </div>
+            <div id="checkout-form">
+                <form action="{% url "Myapp:order-confirm" product.slug quantity %}" method="post">
+                    {% csrf_token %}
+                    <input class="order-btn" type="submit" value="place an order">
+                </form>
+            </div>
+        </div>
+           
 
-    {% if next %}
-    {% endif %}
-    <p>Your are at the order page.</p>
-    <p>{{product.product_name }}</p>
-    <p>{{ product.price}}</p>
-    <p>{{ quantity }}</p>
+        
+         
 
-    <h5>Payment methods:</h5>
-    <p>Cash on delivery</p>
-    <p>Others</p>
-
-    <form action="{% url "Myapp:order-confirm" product.slug quantity %}" method="post">
-        {% csrf_token %}
-        <input type="submit" value="place an order">
-    </form>
-
-    <p>{{ request.user.username }}</p>
-    <p>{{ request.user.first_name }}</p>
-    <p>{{ request.user.last_name }}</p>
-    <p>{{ request.user.email }}</p>
-
+    </div>
 {% endblock %}

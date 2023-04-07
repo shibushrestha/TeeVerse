@@ -1,7 +1,7 @@
 #container{
   padding: 8px;
   width: 900px;
-  margin: 20px 20px;
+  margin: 0 20px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -22,7 +22,7 @@
 
 #side-container{
   width: 600px;
-  height: 450px;
+  height: 480px !important;
   margin-left: 30px;
   border-radius: 5px;
   padding: 10px 20px;
@@ -39,7 +39,7 @@
   word-spacing: 2px;
 }
 
-#product-info h1{
+#product-info h2{
   margin-bottom: 10px;
 }
 
@@ -68,7 +68,7 @@
 
 #des{
   margin-top: 25px;
-  padding: 8px;
+  padding: 8px 12px;
   border: 1px solid #46494b;
   border-radius: 5px;
   font-size: 14px;
@@ -88,6 +88,7 @@
   color: rgb(238, 240, 240);
   font-size: 16px;
   transition: 0.3s ease-in-out;
+  
 }
 
 .btn-buy{

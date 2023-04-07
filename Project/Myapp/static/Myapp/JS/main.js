@@ -44,3 +44,4 @@ addToCartBtn.forEach(btn =>{
     })
 });
 
+

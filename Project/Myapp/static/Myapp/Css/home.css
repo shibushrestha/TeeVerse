@@ -10,7 +10,6 @@
 
 .card{
 	margin: 20px 5px;
-	padding: 5px;
 	display: flex;
 	flex-direction: column;
 	border-radius: 3px;
@@ -25,12 +24,14 @@
 }
 
 .img-container{
+	width: inherit;
 	height: 200px;
 	align-self: center;
 }
 
 .img-container > img{
-	height: 80%;
+	width: inherit;
+	height: inherit;
 	background-size: cover;
 }
 

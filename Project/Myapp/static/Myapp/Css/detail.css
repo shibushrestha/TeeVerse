@@ -10,7 +10,6 @@
 #img-container{
   background-size: cover;
   display: flex;
-  justify-content: center;
   align-self: center;
 }
 

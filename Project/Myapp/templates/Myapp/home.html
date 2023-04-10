@@ -3,6 +3,7 @@
 
 {% block css %}
 	<link rel="stylesheet" type="text/css" href="{% static 'Myapp/Css/home.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'Myapp/Css/footer.css' %}">
 {% endblock %}
 
 
@@ -42,9 +43,9 @@
 			{% endfor %}
 		</div>
 	{% endif %}
-
+	{% include 'Myapp/footer.html' %}
 {% endblock %}
 
 {% block scripts %}
-	<script type="text/javascript" src="{% static 'Myapp/JS/main.js' %}"></script>
+	<script type="text/javascript" src="{% static 'Myapp/JS/home.js' %}"></script>
 {% endblock scripts %}

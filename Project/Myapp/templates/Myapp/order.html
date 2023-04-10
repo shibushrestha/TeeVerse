@@ -3,38 +3,90 @@
 {% load static %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'Myapp/Css/order.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Myapp/Css/footer.css' %}">
+
 {% endblock css %}
 
 {% block content %}
+
     <div id="main-container">
-        <div class="shipping-detail">
-            <h4>Shipping detail</h4>
-            <p>Deliver to: {{ request.user.username }}</p>
-            <p>address: {{ request.user.address}}</p>
-            <p>email to: {{ request.user.email }}</p>
+        <div id="side-container">
             
+            <div class="shipping-detail">
+                <h4>Shipping detail</h4>
+                <div class="info">
+                    <p style="margin-left: 30px">Deliver to : {{ request.user.get_full_name }}</p>
+                </div>
+                <div class="info">
+                    <p  style="margin-left: 30px">email to : {{ request.user.email }}</p>
+                </div>
+                <div class="info">
+                    <img style="width: 20px; height: 20px; align-self:center" src="https://img.icons8.com/color/48/null/order-delivered.png"/>
+                    <p>address : {{ request.user.address}}, Kathmandu</p><a href="#">edit</a>
+                </div>
+                
+                <div class="info">
+                    <img style="width: 20px; height: 20px; align-self:center" src="https://img.icons8.com/material-sharp/24/null/ringer-volume.png"/>
+                    <p style="letter-spacing: 2px;">contact number : {{ request.user.contact_number }}</p><a href="#">edit</a>
+                </div>
+            </div>
+
+            <div class="methods">
+                <h5> Payment choice method :</h5>
+                <label class="payment" for="payment">
+                    <p>Cash on delivery</p>
+                    <select style="display:none" name="payment" id="payment">
+                        <option value="C">Cash on delivery</option>
+                    </select>
+                </label>
+                
+            </div>
+
+            <div class="methods">
+                <h5>Delivery method :</h5>
+                <label for="delivery">
+                        <p>Standard</p><?xml version="1.0" ?><svg height="14" viewBox="0 0 48 48" width="14" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48h-48z" fill="none"/><path d="M22 34h4v-12h-4v12zm2-30c-11.05 0-20 8.95-20 20s8.95 20 20 20 20-8.95 20-20-8.95-20-20-20zm0 36c-8.82 0-16-7.18-16-16s7.18-16 16-16 16 7.18 16 16-7.18 16-16 16zm-2-22h4v-4h-4v4z"/></svg>
+                    
+                    <select style="display:none" name="delivery" id="delivery">
+                        <option value="S">Standard</option>
+                    </select>
+                </label>
+                <label for="delivery">
+                    <p>Express</p>
+                    <select style="display:none" name="delivery" id="delivery">
+                        <option value="E">Express</option>
+                    </select>
+                </label>
+            </div>
         </div>
+
         <div class="order-container">
             <div id="product-detail">
                 <img src={{product.product_image.url}}>
-                <p>Product {{product.name|capfirst }}</p>
-                <p>price {{ product.price}}</p>
-                <p>quantity {{ quantity }}</p>
-                <p>subtotal : Rs. {{ product.price}}</p>
-                <p>delivery : Rs. 50</p>
-                <p>total : Rs 1500</p>
+                <p>{{product.name|capfirst }}</p>
+                <p>price : Rs. {{ product.price}}</p>
+                <p>quantity : {{ quantity }}</p>
+                <hr style="margin-top: 12px; color:rgba(51, 54, 56, 0.2)">
+                <p>subtotal : Rs. {{ sub_total}} &#40; {{product.price}} &times; {{ quantity }} &#41; </p>
+                <p>delivery : Rs. {{ delivery_charge}}</p>
+                <p>total : Rs. {{total}}</p>
             </div>
             <div id="checkout-form">
                 <form action="{% url "Myapp:order-confirm" product.slug quantity %}" method="post">
                     {% csrf_token %}
-                    <input class="order-btn" type="submit" value="place an order">
+                    <input class="order-btn" type="submit" value="checkout">
                 </form>
             </div>
         </div>
-           
-
-        
-         
-
     </div>
+    {% include 'Myapp/footer.html' %}
+
+    <script>
+        const paymentMethod = document.querySelector('.payment');
+        console.log(paymentMethod);
+        paymentMethod.addEventListener('change', function(){
+            const selectedOption = paymentMethod.options[paymentMethod.selectedIndex];
+            console.log(selectedOption.value);
+        })
+    </script>
 {% endblock %}
